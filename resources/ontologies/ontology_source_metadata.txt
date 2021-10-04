@@ -1,28 +1,6 @@
 ===================================
-#Sun Jan 10 07:51:01 UTC 2021 
+#Wed Sep 01 19:39:21 UTC 2021 
 ===================================
-
-EDGE: phenotype
-DATA PROCESSING INFO
-  - IDENTIFIER MAPPING = None
-  - FILTERING CRITERIA = None
-  - EVIDENCE CRITERIA = None
-DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/hp.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 86049594
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/hp_with_imports.owl
-
-EDGE: go
-DATA PROCESSING INFO
-  - IDENTIFIER MAPPING = None
-  - FILTERING CRITERIA = None
-  - EVIDENCE CRITERIA = None
-DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/go.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 158595338
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/go_with_imports.owl
 
 EDGE: disease
 DATA PROCESSING INFO
@@ -30,54 +8,21 @@ DATA PROCESSING INFO
   - FILTERING CRITERIA = None
   - EVIDENCE CRITERIA = None
 DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/mondo.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 231114807
+  - DOWNLOAD_URL = resources/ontologies/mondo_with_imports.owl
+  - DOWNLOAD_DATE = 09/01/2021
+  - FILE_SIZE_IN_BYTES = 225955091
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/mondo_with_imports.owl
 
-EDGE: vaccine
+EDGE: napdichem
 DATA PROCESSING INFO
   - IDENTIFIER MAPPING = None
   - FILTERING CRITERIA = None
   - EVIDENCE CRITERIA = None
 DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/vo.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 8140082
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/vo_with_imports.owl
-
-EDGE: chemical
-DATA PROCESSING INFO
-  - IDENTIFIER MAPPING = None
-  - FILTERING CRITERIA = None
-  - EVIDENCE CRITERIA = None
-DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/chebi.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 592367801
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_with_imports.owl
-
-EDGE: anatomy
-DATA PROCESSING INFO
-  - IDENTIFIER MAPPING = None
-  - FILTERING CRITERIA = None
-  - EVIDENCE CRITERIA = None
-DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/uberon/ext.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 75793278
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/ext_with_imports.owl
-
-EDGE: cell
-DATA PROCESSING INFO
-  - IDENTIFIER MAPPING = None
-  - FILTERING CRITERIA = None
-  - EVIDENCE CRITERIA = None
-DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/clo.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 122290057
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/clo_with_imports.owl
+  - DOWNLOAD_URL = resources/ontologies/chebi_lite_merged_with_imports.owl
+  - DOWNLOAD_DATE = 09/01/2021
+  - FILE_SIZE_IN_BYTES = 159818985
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_lite_merged_with_imports.owl
 
 EDGE: protein
 DATA PROCESSING INFO
@@ -85,21 +30,10 @@ DATA PROCESSING INFO
   - FILTERING CRITERIA = None
   - EVIDENCE CRITERIA = None
 DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/pr.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 217990574
+  - DOWNLOAD_URL = resources/ontologies/pr_with_imports.owl
+  - DOWNLOAD_DATE = 09/01/2021
+  - FILE_SIZE_IN_BYTES = 217874185
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/pr_with_imports.owl
-
-EDGE: genomic
-DATA PROCESSING INFO
-  - IDENTIFIER MAPPING = None
-  - FILTERING CRITERIA = None
-  - EVIDENCE CRITERIA = None
-DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/so.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 4866009
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/so_with_imports.owl
 
 EDGE: pathway
 DATA PROCESSING INFO
@@ -107,9 +41,9 @@ DATA PROCESSING INFO
   - FILTERING CRITERIA = None
   - EVIDENCE CRITERIA = None
 DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/pw.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 4937325
+  - DOWNLOAD_URL = resources/ontologies/pw_with_imports.owl
+  - DOWNLOAD_DATE = 09/01/2021
+  - FILE_SIZE_IN_BYTES = 4915446
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/pw_with_imports.owl
 
 EDGE: relation
@@ -118,8 +52,30 @@ DATA PROCESSING INFO
   - FILTERING CRITERIA = None
   - EVIDENCE CRITERIA = None
 DATA INFO
-  - DOWNLOAD_URL = http://purl.obolibrary.org/obo/ro.owl
-  - DOWNLOAD_DATE = 01/10/2021
-  - FILE_SIZE_IN_BYTES = 845100
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/ro_with_imports.owl
+  - DOWNLOAD_URL = resources/ontologies/ro_with_imports_AD_mods.owl
+  - DOWNLOAD_DATE = 09/01/2021
+  - FILE_SIZE_IN_BYTES = 823125
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/ro_with_imports_AD_mods.owl
+
+EDGE: go
+DATA PROCESSING INFO
+  - IDENTIFIER MAPPING = None
+  - FILTERING CRITERIA = None
+  - EVIDENCE CRITERIA = None
+DATA INFO
+  - DOWNLOAD_URL = resources/ontologies/go_with_imports.owl
+  - DOWNLOAD_DATE = 09/01/2021
+  - FILE_SIZE_IN_BYTES = 122768995
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/go_with_imports.owl
+
+EDGE: chemical
+DATA PROCESSING INFO
+  - IDENTIFIER MAPPING = None
+  - FILTERING CRITERIA = None
+  - EVIDENCE CRITERIA = None
+DATA INFO
+  - DOWNLOAD_URL = resources/ontologies/chebi_with_imports.owl
+  - DOWNLOAD_DATE = 09/01/2021
+  - FILE_SIZE_IN_BYTES = 628097012
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_with_imports.owl
 
