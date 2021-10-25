@@ -1,5 +1,5 @@
 ===================================
-#Wed Sep 01 19:39:21 UTC 2021 
+#Tue Oct 05 00:48:51 UTC 2021 
 ===================================
 
 EDGE: disease
@@ -9,8 +9,8 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/mondo_with_imports.owl
-  - DOWNLOAD_DATE = 09/01/2021
-  - FILE_SIZE_IN_BYTES = 225955091
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 225954749
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/mondo_with_imports.owl
 
 EDGE: napdichem
@@ -20,8 +20,8 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/chebi_lite_merged_with_imports.owl
-  - DOWNLOAD_DATE = 09/01/2021
-  - FILE_SIZE_IN_BYTES = 159818985
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 159827769
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_lite_merged_with_imports.owl
 
 EDGE: protein
@@ -31,7 +31,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/pr_with_imports.owl
-  - DOWNLOAD_DATE = 09/01/2021
+  - DOWNLOAD_DATE = 10/04/2021
   - FILE_SIZE_IN_BYTES = 217874185
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/pr_with_imports.owl
 
@@ -42,8 +42,8 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/pw_with_imports.owl
-  - DOWNLOAD_DATE = 09/01/2021
-  - FILE_SIZE_IN_BYTES = 4915446
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 4915785
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/pw_with_imports.owl
 
 EDGE: relation
@@ -53,7 +53,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/ro_with_imports_AD_mods.owl
-  - DOWNLOAD_DATE = 09/01/2021
+  - DOWNLOAD_DATE = 10/04/2021
   - FILE_SIZE_IN_BYTES = 823125
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/ro_with_imports_AD_mods.owl
 
@@ -64,8 +64,8 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/go_with_imports.owl
-  - DOWNLOAD_DATE = 09/01/2021
-  - FILE_SIZE_IN_BYTES = 122768995
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 122769090
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/go_with_imports.owl
 
 EDGE: chemical
@@ -74,8 +74,63 @@ DATA PROCESSING INFO
   - FILTERING CRITERIA = None
   - EVIDENCE CRITERIA = None
 DATA INFO
-  - DOWNLOAD_URL = resources/ontologies/chebi_with_imports.owl
-  - DOWNLOAD_DATE = 09/01/2021
-  - FILE_SIZE_IN_BYTES = 628097012
-  - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_with_imports.owl
+  - DOWNLOAD_URL = resources/ontologies/chebi_lite_with_imports.owl
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 147676539
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_lite_with_imports.owl
+
+EDGE: phenotype
+DATA PROCESSING INFO
+  - IDENTIFIER MAPPING = None
+  - FILTERING CRITERIA = None
+  - EVIDENCE CRITERIA = None
+DATA INFO
+  - DOWNLOAD_URL = resources/ontologies/hp_with_imports.owl
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 85364425
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/hp_with_imports.owl
+
+EDGE: anatomy
+DATA PROCESSING INFO
+  - IDENTIFIER MAPPING = None
+  - FILTERING CRITERIA = None
+  - EVIDENCE CRITERIA = None
+DATA INFO
+  - DOWNLOAD_URL = resources/ontologies/ext_with_imports.owl
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 64227360
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/ext_with_imports.owl
+
+EDGE: cell
+DATA PROCESSING INFO
+  - IDENTIFIER MAPPING = None
+  - FILTERING CRITERIA = None
+  - EVIDENCE CRITERIA = None
+DATA INFO
+  - DOWNLOAD_URL = resources/ontologies/clo_with_imports.owl
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 122348144
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/clo_with_imports.owl
+
+EDGE: genomic
+DATA PROCESSING INFO
+  - IDENTIFIER MAPPING = None
+  - FILTERING CRITERIA = None
+  - EVIDENCE CRITERIA = None
+DATA INFO
+  - DOWNLOAD_URL = resources/ontologies/so_with_imports.owl
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 4876680
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/so_with_imports.owl
+
+EDGE: oae
+DATA PROCESSING INFO
+  - IDENTIFIER MAPPING = None
+  - FILTERING CRITERIA = None
+  - EVIDENCE CRITERIA = None
+DATA INFO
+  - DOWNLOAD_URL = resources/ontologies/oae_merged_with_imports.owl
+  - DOWNLOAD_DATE = 10/04/2021
+  - FILE_SIZE_IN_BYTES = 9504693
+  - DOWNLOADED_FILE_LOCATION = resources/ontologies/oae_merged_with_imports.owl
 

@@ -33,16 +33,29 @@ from pkt_kg.utils import *
 
 combine_graph = True
 #change graph names and paths
-KG_PATH = '/home/sanya/PheKnowLator/resources/knowledge_graphs/'
-MR_PATH = '/home/sanya/PheKnowLator/machine_read/'
-KG_NAME = 'PheKnowLator_v2.1.0_full_instance_inverseRelations_OWLNETS_NetworkxMultiDiGraph.gpickle'
-MR_GRAPH_NAME = 'machineread_greentea_version1_belief.gpickle'
-NodeLabelsFile = KG_PATH + 'nodeLabels_20210924.pickle'
+KG_PATH = '/home/sanya/PheKnowLatorv2/resources/knowledge_graphs/'
+MR_PATH = '/home/sanya/PheKnowLatorv2/machine_read/output_graphs/'
+KG_NAME = 'PheKnowLator_v3.0.0_full_instance_inverseRelations_OWLNETS_NetworkxMultiDiGraph.gpickle'
+MR_GRAPH_NAME_GT = 'machineread_greentea_version2.gpickle'
+MR_GRAPH_NAME_KT = 'machineread_kratom_version1.gpickle'
+NodeLabelsFile = KG_PATH + 'nodeLabels_20211021.pickle'
 DIR_OUT = '/home/sanya/PheKnowLator/output_files/'
 
 #define namespaces
 obo = Namespace('http://purl.obolibrary.org/obo/')
 napdi = Namespace('http://napdi.org/napdi_srs_imports:')
+
+node_dict = {
+	'EGCG': obo.CHEBI_4806,
+	'CATECHIN': obo.CHEBI_23053,
+	'GREENTEA': napdi.camellia_sinensis_leaf,
+	'KRATOM': napdi.mitragyna_speciosa,
+	'MITRAGYNINE': obo.CHEBI_6956,
+	'HYDROXY_MITRAGYNINE': napdi['7_hydroxy_mitragynine']
+}
+
+nodes_to_filter = [obo.CHEBI_24431, obo.CHEBI_25367, obo.SO_0000704, obo.PR_000029067, obo.PR_000000001, obo.GO_0008152, obo.SO_0000673,
+					URIRef('https://reactome.org/content/detail/R-HSA-1643685'), URIRef('https://reactome.org/content/detail/R-HSA-1430728')]
 
 #read nodeLabels dictionary
 with open(NodeLabelsFile, 'rb') as filep:
@@ -62,7 +75,7 @@ def save_k_single_source_shortest_paths(G, source, k, filepath):
 			else:
 				target_label = nodeLabels[str(target)]
 			file_save.write('\n{} - {} Path:\n'.format(str(source).split('/')[-1], target_label))
-			path_labels = get_path_labels(node_list)
+			path_labels = get_path_labels(G, node_list)
 			for triples in path_labels:
 				for item in triples:
 					file_save.write(str(item)+' ')
@@ -71,15 +84,27 @@ def save_k_single_source_shortest_paths(G, source, k, filepath):
 			break
 	file_save.close()
 
-def get_bidirectional_shortest_paths(G, source, target):
+'''
+print bidirectional shortest path between source and target
+and return length of shortest path
+'''
+def get_bidirectional_shortest_path(G, source, target, nodeLabels):
 	print('Searching for path from {} - {}'.format(str(source), str(target)))
 	pathx = nx.bidirectional_shortest_path(G, source, target)
 
-	path_labels = get_path_labels(pathx)
-	for triples in path_labels:
+	path_labels = get_path_labels(G, pathx, nodeLabels)
+	path_uri = get_path_uri(G, pathx)
+	for triples in zip(path_labels, path_uri):
 		print(triples)
+	return path_labels, path_uri
 
-def get_k_simple_paths(G, source, target, k, cutoff):
+'''
+returns path labels and URIs for simple paths from source to target that have length greater than shortest path
+k = number of paths
+cutoff = maximum length of path
+shortestLens = length of shortest path between source and target
+'''
+def get_k_simple_paths(G, source, target, k, cutoff, shortestLens):
 	print('Searching for paths from {} - {}'.format(str(source), str(target)))
 	paths = nx.all_simple_edge_paths(G, source, target, cutoff=cutoff)
 	path_l = []
@@ -92,14 +117,14 @@ def get_k_simple_paths(G, source, target, k, cutoff):
 		except StopIteration:
 			break
 		print('[info] Simple path found of length {}'.format(len(path))) 
-		if len(path) > cutoff:
-			print('[info] Simple path length greater than shortest path length ({}) so adding to results'.format(cutoff))
-			path_l.append(path)
+		if len(path) > shortestLens:
+			print('[info] Simple path length greater than shortest path length ({}) so adding to results'.format(shortestLens))
+			path_n.append(path)
 		i += 1
-	
-	for path in path_l:
+
+	for newpath in path_n:
 		triple_list = []
-		for triple in path:
+		for triple in newpath:
 			subj_lab = ''
 			pred_lab = ''
 			obj_lab = ''
@@ -114,11 +139,94 @@ def get_k_simple_paths(G, source, target, k, cutoff):
 				pred_lab = nodeLabels[pred]
 			triple_labels = (subj_lab, pred_lab, obj_lab)
 			triple_list.append(triple_labels)
-		path_n.append(triple_list)
+		path_l.append(triple_list)
 	return path_l, path_n
 
+'''
+returns path labels and URIs for simple paths from source to target that have length greater than shortest path
+skips paths that contain nodes from the filtered list defined above - []
+k = number of paths
+cutoff = maximum length of path
+shortestLens = length of shortest path between source and target
+There is a loop filter cutoff that decides how many paths to search without filtered nodes before moving on to the next.
+Currently filter_cutoff = 50
+
+'''
+def get_k_simple_paths_filtered(G, source, target, k, cutoff, shortestLens, nodes_to_filter):
+	
+	filter_cutoff = 50
+	print('Searching for filtered paths from {} - {}'.format(str(source), str(target)))
+	paths = nx.all_simple_edge_paths(G, source, target, cutoff=cutoff)
+	path_l = []
+	path_n = []
+	i = 0
+	filter_count = 0
+	while i<k:
+		try:
+			print('[info] applying next operator to search for a simple path of max length {}'.format(cutoff))
+			path = next(paths)
+		except StopIteration:
+			break
+		print('[info] Simple path found of length {}'.format(len(path))) 
+		if len(path) > shortestLens:
+			print('[info] Simple path length greater than shortest path length ({})'.format(shortestLens))
+			flag = True
+			triples = [item for sublist in path for item in sublist]
+			for node in triples:
+				if node in nodes_to_filter:
+					filter_count += 1
+					flag = False
+					break
+			if flag:
+				path_n.append(path)
+				i += 1
+			else:
+				print('Path contains filtered node, skipping path in results')
+				if filter_count >= filter_cutoff:
+					print('No path found without filtered nodes, moving to next iteration')
+					i += 1
+			
+	for newpath in path_n:
+		triple_list = []
+		for triple in newpath:
+			subj_lab = ''
+			pred_lab = ''
+			obj_lab = ''
+			subj = str(triple[0])
+			pred = str(triple[2])
+			obj = str(triple[1])
+			if subj in nodeLabels:
+				subj_lab = nodeLabels[subj]
+			if obj in nodeLabels:
+				obj_lab = nodeLabels[obj]
+			if pred in nodeLabels:
+				pred_lab = nodeLabels[pred]
+			triple_labels = (subj_lab, pred_lab, obj_lab)
+			triple_list.append(triple_labels)
+		path_l.append(triple_list)
+	return path_l, path_n
+
+'''
+returns list of k shortest paths from source to target
+'''
+def get_k_shortest_paths_filtered(G, source, target, k, weight='weight'):
+	print('Searching for shortest paths from {} - {}'.format(str(source), str(target)))
+	shortest_paths_filtered = []
+	i = 0
+	for path in paths:
+		for node in path:
+			if node in nodes_to_filter:
+				continue
+			else:
+				shortest_paths_filtered.append(path)
+	return shortest_paths_filtered
+
+'''
+returns list of k shortest paths from source to target but removes paths with nodes in filtered list above from results
+'''
 def get_k_shortest_paths(G, source, target, k, weight='weight'):
-	#print()
+	print('Searching for shortest paths from {} - {}'.format(str(source), str(target)))
+	paths = nx.all_shortest_paths(G, source, target, weight=weight)
 	return list(islice(nx.all_shortest_paths(G, source, target, weight=weight), k))
 
 def save_k_shortest_paths(G, source, target, k, filepath, weight='weight'):
@@ -137,7 +245,7 @@ def save_k_shortest_paths(G, source, target, k, filepath, weight='weight'):
 	i = 0
 	for node_list in paths:
 		file_save.write('\nPATH: '+str(i)+'\n')
-		path_labels = get_path_labels(node_list)
+		path_labels = get_path_labels(G, node_list, nodeLabels)
 		for triples in path_labels:
 			for item in triples:
 				file_save.write(str(item)+' ')
@@ -167,7 +275,7 @@ def save_k_simple_paths(G, source, target, k, cutoff, filepath):
 		i += 1
 	file_save.close()
 
-def get_path_labels(nx_graph, path):
+def get_path_labels(nx_graph, path, nodeLabels):
 	path_labels = []
 	if len(path) < 1:
 		print('Path length 1, skipping')
@@ -202,10 +310,14 @@ def get_path_uri(nx_graph, path):
 		data = nx_graph.get_edge_data(*edge)
 		pred = list(data.keys())[0]
 		attribute = list(data.values())
-		uri = [str(edge[0]), pred, str(edge[1]), attribute]
+		uri = [str(edge[0]), str(pred), str(edge[1]), attribute]
 		path_uri.append(uri)
 	return path_uri
 
+'''
+prints common statistics for the graph passed to function including number of nodes, edges
+average degree, node density and nodes with the highest degree
+'''
 def print_graph_statistics(nx_graph):
 	# get the number of nodes, edges, and self-loops
 	nodes = nx.number_of_nodes(nx_graph)
@@ -230,20 +342,19 @@ def print_graph_statistics(nx_graph):
 if __name__ == '__main__':
 	
 	#read pheknowlator graph
-	print('Loading PheKnowLator graph')
+	'''print('Loading PheKnowLator graph')
 	pl_kg = nx.read_gpickle(KG_PATH+KG_NAME)
 	#read machine reading graph
 	print('Loading machine reading graph')
-	mr_kg = nx.read_gpickle(MR_PATH+MR_GRAPH_NAME)
+	mr_kg_gt = nx.read_gpickle(MR_PATH+MR_GRAPH_NAME_GT)
+	mr_kg_kt = nx.read_gpickle(MR_PATH+MR_GRAPH_NAME_KT)
 	if combine_graph:
 		print('Combining graphs')
-		nx_graph = nx.compose(pl_kg, mr_kg)
+		nx_graph = nx.compose_all([pl_kg, mr_kg_gt, mr_kg_kt])'''
 
-	EGCG = obo.CHEBI_4806
-	catechin = obo.CHEBI_23053
-	greentea = napdi.camellia_sinensis_leaf
 
-	save1 = DIR_OUT + 'EGCG_dexamethasone_simple_path_20.txt'
+
+	'''save1 = DIR_OUT + 'EGCG_dexamethasone_simple_path_20.txt'
 	save2 = DIR_OUT + 'EGCG_bodyWeight_simple_path_20.txt'
 	save3 = DIR_OUT + 'catechin_cyp3a4_simple_path_20.txt'
 	save4 = DIR_OUT + 'catechin_hyperglycemia_simple_path_20.txt'
@@ -251,7 +362,7 @@ if __name__ == '__main__':
 	save_k_simple_paths(nx_graph, EGCG, obo.CHEBI_41879, 20, 20, save1)
 	save_k_simple_paths(nx_graph, EGCG, obo.UBERON_0000468, 20, 20, save2)
 	save_k_simple_paths(nx_graph, catechin, obo.PR_P08684, 20, 20, save3)
-	save_k_simple_paths(nx_graph, catechin, obo.HP_0003074, 20, 20, save4)
+	save_k_simple_paths(nx_graph, catechin, obo.HP_0003074, 20, 20, save4)'''
 	
 	'''catechin_list = ['ABCB1_gene', 'Anabolism', 'Biological_Transport', 'Apoptosis', 'Cell_Proliferation', 
 				 'Coronary_Arteriosclerosis', 'Cholesterol', 'Cytochrome_P-450_CYP1A1', 'Cytochrome_P-450_CYP1A2',
