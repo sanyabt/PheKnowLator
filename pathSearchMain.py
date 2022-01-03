@@ -86,7 +86,6 @@ greentea_tuples = [
 	(node_dict['CATECHIN'], node_dict['UGT1A1_protein']),
 	(node_dict['CATECHIN'], node_dict['UGT1A8_protein']),
 	(node_dict['CATECHIN'], node_dict['UGT1A10_protein']),
-	(node_dict['CATECHIN'], node_dict['UGT1A1_protein']),
 	(node_dict['EPICATECHIN'], node_dict['UGT1A1_protein']),
 	(node_dict['EPICATECHIN'], node_dict['UGT1A8_protein']),
 	(node_dict['EPICATECHIN'], node_dict['UGT1A10_protein']),
