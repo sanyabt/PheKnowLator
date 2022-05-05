@@ -17,23 +17,27 @@ sys.path.append('../')
 from pkt_kg.utils import *
 import KG_path_searches
 
-combine_graph = True
+combine_graph = False
 #change graph names and paths
 KG_PATH = '/home/sanya/PheKnowLatorv2/resources/knowledge_graphs/'
 MR_PATH = '/home/sanya/PheKnowLatorv2/machine_read/output_graphs/'
+KG_PATH_MERGED = KG_PATH + 'merged_graphs/'
 KG_NAME = 'PheKnowLator_v3.0.0_full_instance_inverseRelations_OWLNETS_NetworkxMultiDiGraph.gpickle'
+KG_NAME_MERGED = 'PheKnowLator_machine_read_merged_instance_based_OWLNETS_20220406.gpickle'
 MR_GRAPH_NAME_GT = 'machineread_greentea_version2.gpickle'
-MR_GRAPH_NAME_KT = 'machineread_kratom_version1.gpickle'
-NodeLabelsFile = KG_PATH + 'nodeLabels_20211021.pickle'
+MR_GRAPH_NAME_KT = 'machineread_kratom_version2.gpickle'
+MR_GRAPH_NAME_SEM = 'machineread_semrep_version3.gpickle'
+MR_GRAPH_NAME_INF = ''
+NodeLabelsFile = KG_PATH_MERGED + 'nodeLabels_merged_20220406.pickle'
 DIR_OUT = '/home/sanya/PheKnowLatorv2/output_files/'
-outfilegt = DIR_OUT + 'greentea_paths_20211020.tsv'
+'''outfilegt = DIR_OUT + 'greentea_paths_20211020.tsv'
 outfilegt_filtered = DIR_OUT + 'greentea_paths_filtered_20211022.tsv'
 outfilekt = DIR_OUT + 'kratom_paths_20211020.tsv'
-outfilekt_filtered = DIR_OUT + 'kratom_paths_filtered_20211022.tsv'
+outfilekt_filtered = DIR_OUT + 'kratom_paths_filtered_20211022.tsv'''
 
 #set to false for no filtering
 filter_nodes = True
-
+time_slicing = True
 MAXNUMPATHS = 10
 
 #define namespaces
@@ -278,7 +282,7 @@ def get_all_paths(nx_graph, tuples):
 if __name__ == '__main__':
 	
 	
-	#read pheknowlator graph
+	'''#read pheknowlator graph
 	print('Loading PheKnowLator graph')
 	pl_kg = nx.read_gpickle(KG_PATH+KG_NAME)
 	#read machine reading graph
@@ -287,7 +291,10 @@ if __name__ == '__main__':
 	mr_kg_kt = nx.read_gpickle(MR_PATH+MR_GRAPH_NAME_KT)
 
 	print('Combining graphs')
-	nx_graph = nx.compose_all([pl_kg, mr_kg_gt, mr_kg_kt])
+	nx_graph = nx.compose_all([pl_kg, mr_kg_gt, mr_kg_kt])'''
+
+	##READ MERGED GRAPH (PL + REACH + SEMREP + INFERRED)
+	nx_graph = nx.read_gpickle(KG_PATH_MERGED+KG_NAME_MERGED)
 
 	df_gt = get_all_paths(nx_graph, greentea_tuples)
 	df_gt = df_gt.fillna('')
