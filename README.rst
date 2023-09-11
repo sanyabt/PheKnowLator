@@ -1,7 +1,7 @@
 |logo|
 
 
-|pip| |downloads|
+|pip|
 
 |github_action|  |ABRA|
 
@@ -14,6 +14,8 @@ What is PheKnowLator?
 ***********************
 
 PheKnowLator (Phenotype Knowledge Translator) or ``pkt_kg`` is the first fully customizable knowledge graph (KG) construction framework enabling users to build complex KGs that are Semantic Web compliant and amenable to automatic Web Ontology Language (OWL) reasoning, generate contemporary property graphs, and are importable by today’s popular graph toolkits. Please see the project `Wiki <https://github.com/callahantiff/PheKnowLator/wiki>`__ for additional information.
+
+📢 Please see our preprint 👉 https://arxiv.org/abs/2307.05727
 
 What Does This Repository Provide?
 ===================================
@@ -397,10 +399,6 @@ Callahan TJ, Tripodi IJ, Hunter LE, Baumgartner WA. `A Framework for Automated C
 .. |pip| image:: https://img.shields.io/pypi/v/pkt-kg?label=PyPI&logo=pypi&style=social
     :target: https://pypi.org/project/pkt-kg/
     :alt: PyPI project
-
-.. |downloads| image:: https://pepy.tech/badge/pkt_kg
-    :target: https://pepy.tech/badge/pkt_kg
-    :alt: Pypi total project downloads
 
 .. |codacy| image:: https://app.codacy.com/project/badge/Grade/2cfa4ef5f9b6498da56afea0f5dadeed
     :target: https://www.codacy.com/gh/callahantiff/PheKnowLator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=callahantiff/PheKnowLator&amp;utm_campaign=Badge_Grade
