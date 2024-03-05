@@ -1,5 +1,5 @@
 ===================================
-#Tue Aug 22 06:38:24 UTC 2023 
+#Mon Sep 11 06:33:17 UTC 2023 
 ===================================
 
 EDGE: disease
@@ -9,7 +9,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/mondo_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 176230374
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/mondo_with_imports.owl
 
@@ -20,7 +20,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/chebi_lite_merged_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 184242909
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_lite_merged_with_imports.owl
 
@@ -31,7 +31,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/pr_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 220500023
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/pr_with_imports.owl
 
@@ -42,7 +42,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/pw_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 5148095
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/pw_with_imports.owl
 
@@ -53,7 +53,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/ro_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 938370
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/ro_with_imports.owl
 
@@ -64,7 +64,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/go_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 113956674
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/go_with_imports.owl
 
@@ -75,7 +75,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/chebi_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 695125056
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/chebi_with_imports.owl
 
@@ -86,7 +86,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/hp_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 79352835
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/hp_with_imports.owl
 
@@ -97,7 +97,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/uberon_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 89398561
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/uberon_with_imports.owl
 
@@ -108,7 +108,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/clo_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 52496965
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/clo_with_imports.owl
 
@@ -119,7 +119,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/so_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 4942768
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/so_with_imports.owl
 
@@ -130,7 +130,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/oae_merged_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 12931719
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/oae_merged_with_imports.owl
 
@@ -141,7 +141,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/po_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 6518220
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/po_with_imports.owl
 
@@ -152,7 +152,7 @@ DATA PROCESSING INFO
   - EVIDENCE CRITERIA = None
 DATA INFO
   - DOWNLOAD_URL = resources/ontologies/dideo_with_imports.owl
-  - DOWNLOAD_DATE = 08/22/2023
+  - DOWNLOAD_DATE = 09/11/2023
   - FILE_SIZE_IN_BYTES = 1511500
   - DOWNLOADED_FILE_LOCATION = resources/ontologies/dideo_with_imports.owl
 
